@@ -1,0 +1,65 @@
+---
+title: "Teil 1: Organisation von Projekten"
+author: "Edith Scheifele"
+date: "01 März 2019"
+output: 
+  html_document:
+    toc: true
+    number_sections: true
+  keep_tex: true  
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = NA, message = FALSE)
+```
+
+```{r}
+library(here)
+```
+
+# Organisation von Projekten
+
+Wenn wir von Projekten reden, meinen wir im Allgemeinen 1 Experiment oder 1 Analyse. 
+
+## Anlegen einer Projektstruktur
+
+
+### Anlegen eines R-Projects
+
+1. Wir öffnen RStudio.
+
+2. Wir legen ein sogenanntes *project* an, indem wir auf File > New Project klicken. 
+
+3. Dann erscheint ein Pop-up-Fenster, in dem wir New Directory > New Project auswählen. 
+
+4. Unter *Directory name* geben wir unserem Projektordner einen einschlägigen Namen und unter *Create project as subdirectory of* wählen wir *Dektop* (oder einen anderen gut wiederauffindbaren Ort) aus. Anschließend klicken wir auf *Create project*.
+
+5. Unsere RStudio-Oberfläche erneuert sich und wir sehen rechts oben in der Ecke einen blauen Quader mit dem Namen des Projekts.
+
+### Anlegen von Unterordnern
+
+In unserem neuen Ordner *my_new_experiment*, legen wir folgende Unterordner an: *data*, *scripts* und *fig*.
+
+- in *data* legen wir unsere Output-Dateien (txt, csv, edat) ab  
+- in *scripts* legen wir unsere R-Skripte ab  
+
+    + *01_prepare.R*  
+    + *02_load.R* 
+    + ... 
+    + *Dokumentation.Rmd* 
+  
+- in *figures* legen wir unsere Plots ab
+- ggf. weitere Ordner
+
+### Relative und absolute Pfade
+
+Um unser Projekt self-contained, beweglich und auch für andere direkt nutzbar zu machen, empfiehlt sich die Installation von *here*. *here* ist ein Package, das mittels einer Heuristik immer wieder herausfindet, wo sich das Projekt z.B. nach einem PC-Wechsel befindet. Das klingt trivial, ist aber eine wunderbare Sache! So muss man, z.B. nicht alle *setwd()*s neu setzen, wenn man auf einen anderen Laptop wechselt. 
+
+Wir installieren *here* auf unserem Laptop:
+
+```{r eval = FALSE}
+install.packages("here")
+```
+
+
+
